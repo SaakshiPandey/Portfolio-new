@@ -17,6 +17,24 @@ const projects = [
     specialLine: 'Co-authorig research paper under Dr. A Syed Ismail, SRMIST'
   },
   {
+    name: 'Data Quality Engine (DQE-X)',
+    technologies: [
+      "FastAPI",
+      "Python",
+      "scikit-learn", 
+      "pandas",
+      "NumPy",
+      "MongoDB",
+      "Docker"
+    ],
+    points: [
+      'Backend-first data quality engine built with FastAPI, exposing modular REST APIs for dataset ingestion, profiling, scoring, and preprocessing execution',
+      'Automated data diagnostics layer performing feature-level quality checks including missingness, redundancy, multicollinearity, and leakage risk detection using pandas and scikit-learn',
+      'Production-safe execution workflow with dataset versioning, reversible preprocessing actions, audit logs, and a calibrated Dataset Quality Score (0–100) validated by an improvement >5% on already high quality datasets',
+    ],
+    github: 'https://github.com/SaakshiPandey/Data-Quality-Engine'
+  },
+  {
     name: 'StockSage AI',
     technologies: ["React", "Axios", "Recharts","FastAPI", "Python", "MongoDB", "JWT", "scikit-learn", "pandas", "LSTM"]
 ,
@@ -26,6 +44,24 @@ const projects = [
       'Rich user features: includes watchlist, portfolio tracker with ROI and “Sell Now” alerts, sentiment-based insights, and secure signup/login'
     ],
     github: 'https://github.com/SaakshiPandey/StockSage-AI'
+  },
+  {
+    name: 'NeuroBalance',
+    technologies: [
+      "FastAPI",
+      "Python",
+      "scikit-learn",
+      "pandas",
+      "NumPy",
+      "React",
+      "Recharts"
+    ],
+    points: [
+      'Developed a burnout assessment system based on the Maslach Burnout Inventory (MBI), implementing a validated 16-question survey covering daily habits, work environment, and personal life factors',
+      'Designed ML-based evaluation of core burnout dimensions—Emotional Exhaustion, Depersonalization, and Personal Accomplishment—using structured survey responses',
+      'Built a FastAPI backend with real-time inference APIs and an interactive React.js dashboard using Recharts to deliver live predictions, visual analytics, and personalized mental-health improvement recommendations'
+    ],
+    github: 'https://github.com/SaakshiPandey/NeuroBalance'
   },
   {
     name: 'MindLytics – Mental Health Sentiment Analytics',
@@ -78,23 +114,56 @@ const projects = [
     github: 'https://github.com/yourusername/data-viz'
   },
   {
-    name: 'Soon updated',
-    technologies: ['X', 'X', 'X'],
-    points: [
-      'ABC',
-      'ABC'
+    name: 'Air Quality Analysis & Pollution Modelling',
+    technologies: [
+      "Python",
+      "NumPy",
+      "pandas",
+      "scikit-learn",
+      "Matplotlib",
+      "Seaborn"
     ],
-    github: 'https://github.com/yourusername/social-analytics'
+    points: [
+      'End-to-end ML pipeline built on the UCI Air Quality Dataset, covering preprocessing, feature engineering, and train–test evaluation for environmental sensor data',
+      'Implemented multiple supervised models (Linear & Multiple Linear Regression, Logistic Regression, SVM, Random Forest) for pollutant prediction and air quality classification',
+      'Applied unsupervised learning using K-Means and K-Medoids clustering with PCA-based visualisation, Silhouette Score, and WCSS to uncover pollution patterns and data groupings'
+    ],
+    github: 'https://github.com/SaakshiPandey/Air-Quality-Analyser'
   },
   {
-    name: 'Soon updated',
-    technologies: ['X', 'X', 'X'],
-    points: [
-      'ABC',
-      'ABC'
+    name: 'Entity Extraction using IBM Granite-8B',
+    technologies: [
+      "Python",
+      "IBM Granite-8B",
+      "Replicate API",
+      "JSON",
+      "Jupyter Notebook"
     ],
-    github: 'https://github.com/yourusername/iot-automation'
+    points: [
+      'Designed a prompt-based entity extraction pipeline using IBM Granite-8B to convert unstructured book descriptions into structured JSON output',
+      'Extracted key metadata including title, author, genre, publication year, publisher, ISBN, and language using zero-shot LLM inference',
+      'Evaluated extraction quality using precision, recall, and manual validation, demonstrating effective LLM-based NER without task-specific fine-tuning'
+    ],
+    github: 'https://github.com/SaakshiPandey/Entity-Extraction-from-Description-Related-to-a-Book'
+  },
+  {
+    name: 'Hierarchical Document Summarization with IBM Granite',
+    technologies: [
+      "Python",
+      "IBM Granite",
+      "LangChain",
+      "Replicate",
+      "Docling",
+      "transformers"
+    ],
+    points: [
+      'Built a hierarchical abstractive summarization pipeline to process long-form documents exceeding LLM context limits using a summary-of-summaries approach',
+      'Implemented token-aware document chunking by chapter using Docling and Granite tokenizer to ensure efficient utilisation of a 128K context window',
+      'Integrated LangChain with IBM Granite models to generate coherent, unified summaries from multiple structured inputs, demonstrated on full-length literary works'
+    ],
+    github: 'https://github.com/SaakshiPandey/Document-Summarization-using-IBM-Granite'
   }
+
 ];
 
 const Projects = () => {
