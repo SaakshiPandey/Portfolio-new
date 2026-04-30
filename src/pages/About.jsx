@@ -1,9 +1,9 @@
 import React from 'react';
 import { Box, Typography, Grid, Avatar } from '@mui/material';
 import { motion } from 'framer-motion';
-import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaPython, FaJava, FaGitAlt, FaMicrosoft } from 'react-icons/fa';
-import { SiExpress, SiGraphql, SiDjango, SiNumpy, SiPandas, SiScikitlearn, SiTensorflow, SiPytorch, SiStreamlit, SiGooglecolab, SiKeras, SiMysql, SiMongodb, SiPostgresql, SiPostman, SiDocker, SiJupyter } from 'react-icons/si';
-import profileImage from '../assets/profile.png'; // Adjust the path as necessary
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaPython, FaJava, FaGitAlt, FaMicrosoft, FaAws } from 'react-icons/fa';
+import { SiExpress, SiGraphql, SiDjango, SiNumpy, SiPandas, SiScikitlearn, SiTensorflow, SiPytorch, SiStreamlit, SiGooglecolab, SiKeras, SiMysql, SiMongodb, SiPostgresql, SiPostman, SiDocker, SiJupyter, SiKubernetes, SiAnsible, SiTerraform, SiGrafana, SiPrometheus } from 'react-icons/si';
+import profileImage from '../assets/profile.png';
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
@@ -83,7 +83,13 @@ const About = () => {
         { name: 'VS Code', icon: <FaMicrosoft color="#007ACC" size={32} /> },
         { name: 'Postman', icon: <SiPostman color="#FF6C37" size={32} /> },
         { name: 'Docker', icon: <SiDocker color="#2496ED" size={32} /> },
-        { name: 'Jupyter', icon: <SiJupyter color="#F37626" size={32} /> }
+        { name: 'Jupyter', icon: <SiJupyter color="#F37626" size={32} /> },
+        { name: 'Kubernetes', icon: <SiKubernetes color="#326CE5" size={32} /> },
+        { name: 'AWS', icon: <FaAws color="#FF9900" size={32} /> },
+        { name: 'Ansible', icon: <SiAnsible color="#EE0000" size={32} /> },
+        { name: 'Terraform', icon: <SiTerraform color="#844FBA" size={32} /> },
+        { name: 'Grafana', icon: <SiGrafana color="#F46800" size={32} /> },
+        { name: 'Prometheus', icon: <SiPrometheus color="#E6522C" size={32} /> }
       ]
     }
   ];

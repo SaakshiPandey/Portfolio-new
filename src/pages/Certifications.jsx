@@ -1,9 +1,41 @@
-import { Box, Typography, Grid, Button, Avatar } from '@mui/material';
-import { motion } from 'framer-motion';
 import LinkIcon from '@mui/icons-material/Link';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
+import { Avatar, Box, Button, Grid, Typography } from '@mui/material';
+import { motion } from 'framer-motion';
 
 const certifications = [
+    {
+    name: 'Tableau Foundations',
+    issuer: 'Salesforce',
+    date: 'April 2026',
+    link: 'https://drive.google.com/file/d/1yrRZO69ccRxx3z0Yf1kT3XzjgXoIrNjU/view?usp=drive_link',
+    initials: 'SF',
+    color: '#FF3D00' // Deep Orange
+  },
+  {
+    name: 'Networking Basics ',
+    issuer: 'CISCO Networking Academy',
+    date: ' October 2025',
+    link: 'https://www.credly.com/badges/13f93ee8-9ec0-4c2d-9d24-092c8913eb57/public_url',
+    initials: 'NW',
+    color: '#00C853' // Vibrant Green
+  },
+  {
+    name: 'AWS Academy Graduate - Cloud Foundations - Training Badge',
+    issuer: 'AWS Academy',
+    date: 'April 2026',
+    link: 'https://www.credly.com/badges/4b57eec7-7758-4019-b41e-12b2723b7158/public_url',
+    initials: 'AWS',
+    color: '#2962FF' // Bright Blue
+  },
+  {
+    name: 'AWS Academy Graduate - Generative AI Foundations - Training Badge',
+    issuer: 'AWS Academy',
+    date: 'June 2026',
+    link: 'https://www.credly.com/badges/f21fa10d-239d-4e21-b72e-2fd9e4c9acec/public_url',
+    initials: 'AWS',
+    color: '#FFD600' // Amber
+  },
   {
     name: 'ML for Data Science',
     issuer: 'IBM',
