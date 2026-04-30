@@ -1,6 +1,7 @@
 import { Box, Typography, Grid, IconButton } from '@mui/material';
 import { motion } from 'framer-motion';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 const projects = [
   {
@@ -15,6 +16,27 @@ const projects = [
     isResearch: true,
     duration: 'May 2025 - Present',
     specialLine: 'Co-authorig research paper under Dr. A Syed Ismail, SRMIST'
+  },
+  {
+    name: 'MamaBabyBud',
+    technologies: ['MongoDB', 'Express.js', 'React.js', 'Node.js'],
+    points: [
+      'Developed a full-stack MERN application for maternal and infant care, enabling real-time tracking of baby activities including feeding, sleep, growth, and maternal health data through modular REST APIs',
+      'Architected a service-oriented backend with dedicated modules for user management, baby care, analytics, tracking, and alerts, ensuring scalable and maintainable system design',
+      'Built an interactive React-based frontend with dynamic dashboards and integrated alert mechanisms for reminders including feeding, vaccination, and checkups, supported by MongoDB for efficient health data storage and retrieval'
+    ],
+    github: 'https://github.com/SaakshiPandey/MamaBabyBud-frontend',
+    live: 'https://mamababybudd.netlify.app/'
+  },
+  {
+    name: 'Climate Forecasting System',
+    technologies: ['Python', 'LightGBM', 'GRU', 'Pandas', 'NumPy', 'Flask'],
+    points: [
+      'Developed a climate forecasting system using GRU for time-series modeling and LightGBM for high-performance regression, predicting temperature, rainfall, and humidity trends from historical data',
+      'Achieved 97% prediction accuracy through advanced preprocessing, feature engineering, and model optimization, effectively capturing temporal dependencies and seasonal patterns',
+      'Built a Flask-based REST API for real-time predictions and integrated visualization components to analyze climate trends and support data-driven decision-making'
+    ],
+    github: 'https://github.com/SaakshiPandey/Climate-Forecasting'
   },
   {
     name: 'Data Quality Engine (DQE-X)',
@@ -435,28 +457,56 @@ const ProjectCard = ({ project, index, isResearch = false }) => {
             ))}
           </Box>
 
-          <motion.div
-            className="github-button"
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.9 }}
-            transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-          >
-            <IconButton
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              sx={{
-                color: '#64ffda',
-                backgroundColor: 'rgba(100, 255, 218, 0.1)',
-                border: '1px solid rgba(100, 255, 218, 0.3)',
-                '&:hover': {
-                  backgroundColor: 'rgba(100, 255, 218, 0.2)',
-                },
-              }}
+          <Box sx={{ display: 'flex', gap: '0.5rem' }}>
+            {project.live && (
+              <motion.div
+                className="github-button"
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+              >
+                <IconButton
+                  href={project.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${project.name} live site`}
+                  sx={{
+                    color: '#64ffda',
+                    backgroundColor: 'rgba(100, 255, 218, 0.1)',
+                    border: '1px solid rgba(100, 255, 218, 0.3)',
+                    '&:hover': {
+                      backgroundColor: 'rgba(100, 255, 218, 0.2)',
+                    },
+                  }}
+                >
+                  <OpenInNewIcon />
+                </IconButton>
+              </motion.div>
+            )}
+            <motion.div
+              className="github-button"
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
             >
-              <GitHubIcon />
-            </IconButton>
-          </motion.div>
+              <IconButton
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${project.name} GitHub repository`}
+                sx={{
+                  color: '#64ffda',
+                  backgroundColor: 'rgba(100, 255, 218, 0.1)',
+                  border: '1px solid rgba(100, 255, 218, 0.3)',
+                  '&:hover': {
+                    backgroundColor: 'rgba(100, 255, 218, 0.2)',
+                  },
+                }}
+              >
+                <GitHubIcon />
+              </IconButton>
+            </motion.div>
+          </Box>
         </Box>
       </Box>
     </motion.div>
