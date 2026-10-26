@@ -1,16 +1,30 @@
-import { AppBar, Toolbar, Box, IconButton, Menu, MenuItem, Button } from '@mui/material';
+
+import {
+  AppBar,
+  Toolbar,
+  Box,
+  IconButton,
+  Menu,
+  MenuItem,
+} from '@mui/material';
+
 import MenuIcon from '@mui/icons-material/Menu';
+import DescriptionIcon from '@mui/icons-material/Description';
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
-import DescriptionIcon from '@mui/icons-material/Description';
 
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const location = useLocation();
   const open = Boolean(anchorEl);
 
-  const handleMenu = (event) => setAnchorEl(event.currentTarget);
-  const handleClose = () => setAnchorEl(null);
+  const handleMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   const navItems = [
     { name: 'Home', to: '/' },
@@ -18,111 +32,115 @@ const Navbar = () => {
     { name: 'Experience', to: '/experience' },
     { name: 'Projects', to: '/projects' },
     { name: 'Certifications', to: '/certifications' },
+    { name: 'Resume', to: '/resume' },
   ];
 
-  const resumeLink = 'https://drive.google.com/file/d/1e1fmHu7QfNfbkoKrbOTNFinD5IcNBKer/view?usp=drive_link';
+  const isActive = (path) => location.pathname === path;
+
+  // Shared styling for all desktop navigation links
+  const navLinkStyle = (path) => ({
+    color: isActive(path) ? '#64ffda' : 'white',
+    textDecoration: 'none',
+    fontSize: '1rem',
+    fontWeight: 500,
+    letterSpacing: '1px',
+    padding: '0.5rem 0',
+    position: 'relative',
+    transition: 'color 0.3s ease',
+  });
 
   return (
-    <AppBar 
+    <AppBar
       position="fixed"
-      sx={{ 
+      sx={{
         backgroundColor: 'transparent',
+        backgroundImage: 'none',
         boxShadow: 'none',
         backdropFilter: 'none',
-        transition: 'none',
         width: '100%',
         right: 0,
         left: 0,
         top: 0,
+        zIndex: 1200,
       }}
     >
-      <Toolbar sx={{ 
-        justifyContent: 'right',
-        padding: '2 !important',
-        minHeight: '64px !important',
-        backgroundColor: 'transparent',
-      }}>
-        {/* Desktop Navigation - Simple Links */}
-        <Box sx={{ 
-          display: { xs: 'none', md: 'flex' }, 
-          gap: 4,
-          alignItems: 'center',
-        }}>
+      <Toolbar
+        sx={{
+          justifyContent: 'flex-end',
+          px: { xs: 2, md: 4 },
+          minHeight: '64px !important',
+          backgroundColor: 'transparent',
+        }}
+      >
+        {/* Desktop Navigation */}
+        <Box
+          sx={{
+            display: { xs: 'none', md: 'flex' },
+            gap: 4,
+            alignItems: 'center',
+          }}
+        >
           {navItems.map((item) => (
-            <Link 
+            <Link
               key={item.to}
               to={item.to}
-              style={{
-                color: location.pathname === item.to ? '#64ffda' : 'white',
-                textDecoration: 'none',
-                fontSize: '1rem',
-                fontWeight: 500,
-                letterSpacing: '1px',
-                padding: '0.5rem 0',
-                position: 'relative',
-              }}
+              style={navLinkStyle(item.to)}
             >
               {item.name}
-              {location.pathname === item.to && (
-                <div style={{
-                  position: 'absolute',
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  height: '2px',
-                  backgroundColor: '#64ffda',
-                }}/>
+
+              {isActive(item.to) && (
+                <Box
+                  component="span"
+                  sx={{
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    height: '2px',
+                    backgroundColor: '#64ffda',
+                  }}
+                />
               )}
             </Link>
           ))}
-          {/* Resume Button */}
-          <Button
-            variant="outlined"
-            href={resumeLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            startIcon={<DescriptionIcon />}
-            sx={{
-              color: '#64ffda',
-              borderColor: '#64ffda',
-              padding: '0.5rem 1.5rem',
-              marginLeft: '1rem',
-              '&:hover': {
-                backgroundColor: 'rgba(100, 255, 218, 0.1)',
-                borderColor: '#64ffda',
-              }
-            }}
-          >
-            Resume
-          </Button>
         </Box>
-        
-        {/* Mobile menu button */}
+
+        {/* Mobile Menu Button */}
         <IconButton
           size="large"
           edge="end"
-          color="inherit"
-          aria-label="menu"
+          aria-label="Open navigation menu"
+          aria-controls={open ? 'mobile-navigation-menu' : undefined}
+          aria-haspopup="true"
+          aria-expanded={open ? 'true' : undefined}
           onClick={handleMenu}
-          sx={{ 
-            display: { md: 'none' },
+          sx={{
+            display: { xs: 'inline-flex', md: 'none' },
             position: 'absolute',
             right: '1rem',
+            color: '#64ffda',
           }}
         >
           <MenuIcon />
         </IconButton>
-        
-        {/* Mobile menu */}
+
+        {/* Mobile Navigation Menu */}
         <Menu
+          id="mobile-navigation-menu"
           anchorEl={anchorEl}
           open={open}
           onClose={handleClose}
-          sx={{ 
-            '& .MuiPaper-root': {
-              backgroundColor: 'rgba(10, 10, 10, 0.9)',
-              minWidth: '200px',
-            }
+          slotProps={{
+            paper: {
+              sx: {
+                backgroundColor: 'rgba(10, 10, 10, 0.96)',
+                backdropFilter: 'blur(12px)',
+                border: '1px solid rgba(100, 255, 218, 0.2)',
+                borderRadius: '12px',
+                minWidth: '210px',
+                mt: 1,
+              },
+            },
           }}
           anchorOrigin={{
             vertical: 'bottom',
@@ -134,39 +152,40 @@ const Navbar = () => {
           }}
         >
           {navItems.map((item) => (
-            <MenuItem 
-              key={item.to} 
-              onClick={handleClose}
+            <MenuItem
+              key={item.to}
               component={Link}
               to={item.to}
-              selected={location.pathname === item.to}
+              onClick={handleClose}
+              selected={isActive(item.to)}
               sx={{
-                color: location.pathname === item.to ? '#64ffda' : 'white',
+                color: isActive(item.to) ? '#64ffda' : 'white',
+                py: 1.4,
                 '&.Mui-selected': {
-                  backgroundColor: 'rgba(100, 255, 219, 0.15)',
+                  backgroundColor: 'rgba(100, 255, 218, 0.12)',
+                },
+                '&.Mui-selected:hover': {
+                  backgroundColor: 'rgba(100, 255, 218, 0.18)',
+                },
+                '&:hover': {
+                  color: '#64ffda',
+                  backgroundColor: 'rgba(100, 255, 218, 0.08)',
                 },
               }}
             >
+              {item.to === '/resume' && (
+                <DescriptionIcon
+                  sx={{
+                    mr: 1,
+                    color: '#64ffda',
+                    fontSize: '1.1rem',
+                  }}
+                />
+              )}
+
               {item.name}
             </MenuItem>
           ))}
-          {/* Resume Link in Mobile Menu */}
-          <MenuItem 
-            onClick={handleClose}
-            component="a"
-            href={resumeLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            sx={{
-              color: 'white',
-              '&:hover': {
-                color: '#64ffda',
-              }
-            }}
-          >
-            <DescriptionIcon sx={{ marginRight: '8px' }} />
-            Resume
-          </MenuItem>
         </Menu>
       </Toolbar>
     </AppBar>

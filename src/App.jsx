@@ -12,6 +12,7 @@ const About = lazy(() => import('./pages/About'));
 const Experience = lazy(() => import('./pages/Experience'));
 const Projects = lazy(() => import('./pages/Projects'));
 const Certifications = lazy(() => import('./pages/Certifications'));
+const Resume = lazy(() => import('./pages/Resume'));
 
 const darkTheme = createTheme({
   palette: {
@@ -81,6 +82,16 @@ function AppRoutes() {
               transition={{ duration: 0.5 }}
             >
               <Certifications />
+            </motion.div>
+          } />
+          <Route path="/resume" element={
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -50 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Resume />
             </motion.div>
           } />
         </Routes>

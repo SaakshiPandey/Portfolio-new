@@ -3,6 +3,19 @@ import { motion } from 'framer-motion';
 
 const experiences = [
   {
+  type: 'Professional',
+  position: 'Software Development Engineer Intern',
+  company: 'Barclays India',
+  duration: 'June 2026 – August 2026',
+  points: [
+    'Modernized an enterprise Java Spring application by migrating legacy components to the latest supported framework, enabling AWS cloud-ready deployment.',
+    'Refactored backend modules, resolved framework compatibility issues, and validated application reliability through unit and integration testing, followed by deployment on Apache Tomcat.',
+    'Developed Kubernetes ConfigMaps for Alpha, Beta, and Gamma environments to support environment-specific deployments across cloud infrastructure.',
+    'Documented technical changes in Confluence and collaborated with an Agile engineering team using Git-based workflows to deliver reliable software within project timelines.'
+  ],
+  certificate: 'YOUR_BARCLAYS_CERTIFICATE_URL'
+},
+  {
     type: 'Professional',
     position: 'Advanced Software Engineer (Job Simulation)',
     company: 'Walmart via Forage',

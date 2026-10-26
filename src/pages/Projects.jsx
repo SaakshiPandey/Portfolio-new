@@ -12,10 +12,9 @@ const projects = [
       'Integrating Blockchain ledger for secure, immutable logging of verified medicine authenticity results',
       'Deployed FastAPI-based microservice delivering real-time predictions and traceability for medicine batches.'
     ],
-    github: 'https://github.com/yourusername/ai-research',
+    github: 'https://github.com/SaakshiPandey',
     isResearch: true,
-    duration: 'May 2025 - Present',
-    specialLine: 'Co-authorig research paper under Dr. A Syed Ismail, SRMIST'
+    duration: 'May 2025 - Present'
   },
   {
     name: 'MamaBabyBud',
